@@ -20,3 +20,6 @@
 
   next();
 })();
+function getHole (index) {
+  return document.getElementById('hole'+ index);
+}
