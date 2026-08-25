@@ -1,22 +1,11 @@
-let intervalId = null;
-
-function startTimer() {
-  const timerOut = document.getElementById('timer');
-  let timeLeft = parseInt(timerOut.textContent, 10);
-
-  if (intervalId) {
-    clearInterval(intervalId);
+const lower = function () {
+  const timer = document.getElementById('timer');
+  let timerLeft = parseInt(timer.textContent);
+  if (timerLeft === 0) {
+    alert("Вы победили в конкурсе!");
+  } else {
+    timerLeft--;
+    timer.textContent = timerLeft;
   }
-
-  intervalId = setInterval(() => {
-    timeLeft--;
-    timerOut.textContent = timeLeft;
-
-    if (timeLeft <= 0) {
-      clearInterval(intervalId);
-      timerOut.textContent = 'Время вышло!';
-    }
-  }, 1000);
 }
-
-startTimer();
+setInterval(lower, 1000);
