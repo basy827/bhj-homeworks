@@ -30,3 +30,60 @@ dropdowns.forEach(dropdown => {
     }
   });
 });
+
+
+//Вариант от преподавателя
+// document.addEventListener('click', (e) => {
+//   const { target } = e;
+//   const value = target.closest('.dropdown__value');
+
+//   if (value) {
+//     e.preventDefault();
+//     const dropdown = target.closest('.dropdown');
+//     const list = dropdown.querySelector('.dropdown__list');
+//     list.classList.toggle('dropdown__list_active');
+
+//     return;
+//   }
+
+//   const item = target.closest('.dropdown__item');
+
+//   if (item) {
+//     e.preventDefault();
+//     const dropdown = target.closest('.dropdown');
+//     const value = dropdown.querySelector('.dropdown__value');
+
+//     const list = item.closest('.dropdown__list');
+//     list.classList.remove('dropdown__list_active');
+
+//     value.textContent = item.textContent.trim();
+
+//     return;
+//   }
+// });
+
+// 2 вариант от преподавателя
+
+// const containers = document.querySelectorAll('.dropdown');
+
+// containers.forEach(node => {
+//   const value = node.querySelector('.dropdown__value');
+//   const list = node.querySelector('.dropdown__list');
+
+//   const items = node.querySelectorAll('.dropdown__item');
+
+//   value.addEventListener('click', e => {
+//     list.classList.toggle('dropdown__list_active')
+//   })
+
+//   items.forEach(item => {
+//     item.addEventListener('click', e => {
+//       e.preventDefault();
+
+//       list.classList.remove('dropdown__list_active')
+
+//       value.textContent = item.textContent.trim();
+//     })
+//   })
+  
+// });
