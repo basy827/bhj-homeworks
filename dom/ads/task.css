@@ -6,4 +6,12 @@
   display: inline;
 }
 
-
+[data-color = "colorGreen"] {
+  color: green;
+}
+[data-color = "colorRed"] {
+  color: red;
+}
+[data-color = "colorBlue"] {
+  color: blue;
+}
