@@ -44,3 +44,46 @@ document.addEventListener('click', e => {
     tooltip.classList.remove('tooltip_active');
   }
 });
+
+// Вариант преподавателя
+
+// const hint = document.createElement("div");
+// hint.classList.add("tooltip");
+
+// document.querySelector("body").insertAdjacentElement("beforeend", hint)l;
+
+// Array.from(document.getElementsByClassName("has-tooltip")).forEach(link => {
+//   link.addEventListener(("click"), event => {
+//     event.prevenDefault();
+//     if (link.getAttribute("title") === hint.innerText){
+//       hint.classList.toggle("tooltip_active");
+//       return;
+//   }
+
+//   hint.classList.add("tooltip_active");
+//   hitn.innerText = link.getAttribute("title");
+
+//   const { left ,top } = getLinkCoords(link);
+//   hint.style = `left: ${left}px; top: ${top}px`;
+// })
+// })
+
+// function getLinkCoords (link) {
+//   const linkCoords = link.getBounfingClientRect();
+//   const linkDataPosition = link.dataset.position;
+
+//   switch (linkDataPosition) {
+//     case: "right":
+//       return {left: linkCoords.right, top: linkCoords.top};
+//       break;
+//     case: "top":
+//       return {left: linkCoords.left, top: linkCoords.top - 30};
+//       break;
+//     case: "left":
+//       return {left: linkCoords.left -100, top: linkCoords.top + 20};
+//       break;
+//     default:
+//       return {left: linkCoords.left -100, top: linkCoords.top + 20};
+//       break;
+//   }
+// }
