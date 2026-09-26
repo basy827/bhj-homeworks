@@ -21,17 +21,30 @@ document.addEventListener('DOMContentLoaded', () => {
     loader.classList.remove('loader_active');
   }
 
-  fetch('https://students.netoservices.ru/nestjs-backend/slow-get-courses')
-    .then(response => response.json())
-    .then(data => {
-      renderCourses(data);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://students.netoservices.ru/nestjs-backend/slow-get-courses');
+xhr.responseType = 'json';
+
+xhr.onload = () => {
+  if (xhr.status >= 200 && xhr.status < 300) {
+    const data = xhr.response;
+    renderCourses(data);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    loader.classList.remove('loader_active');
+  } else {
+    console.error('Ошибка загрузки курсов валют: HTTP статус', xhr.status, xhr.statusText);
+    if (!cachedData) {
       loader.classList.remove('loader_active');
-    })
-    .catch(error => {
-      console.error('Ошибка загрузки курсов валют:', error);
-      if (!cachedData) {
-        loader.classList.remove('loader_active');
-      }
-    });
+    }
+  }
+};
+
+xhr.onerror = () => {
+  console.error('Ошибка сети при запросе курсов валют');
+  if (!cachedData) {
+    loader.classList.remove('loader_active');
+  }
+};
+
+xhr.send();
 });
